@@ -18,6 +18,7 @@ editor_options:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_knit$set(root.dir = here::here())
 
 library(openxlsx)
 library(dplyr)
@@ -57,9 +58,11 @@ This scale was based on Turkey and Turkish lifestyle, as the author comment in h
 
 ## Survey Data
 
-```{r, echo=TRUE}
-dfenc <- read.xlsx(xlsxFile = "./../data/Ecologial Scale - Raw Data.xlsx", 
-                     sheet = "Ecological Inteligence Scale", colNames=TRUE) %>%
+```{r Read data, echo=TRUE}
+data_file_path <- here::here("data", "Ecologial Scale - Raw Data.xlsx")
+#dfenc <- read.xlsx(xlsxFile = "./data/Ecologial Scale - Raw Data.xlsx", 
+#                     sheet = "Ecological Inteligence Scale", colNames=TRUE) %>%
+dfenc <- read.xlsx(xlsxFile = data_file_path) %>%
   mutate(Username = seq(1,n())) %>%
   na.omit()
 colnames(dfenc) <- c("date", "student", "campus", "genre", "nationality", "age", paste0("holis", 1:5), paste0("social", 1:4), paste0("econ",1:3), "change", "argument") 
