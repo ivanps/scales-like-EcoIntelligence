@@ -3,7 +3,7 @@ title: "Measuring Ecological Intelligence on Business Students"
 date: "`r Sys.Date()`"
 output: html_document
 knit: (function(inputFile, encoding) {
-  rmarkdown::render(inputFile, encoding = encoding, output_dir = "./../html") })
+  rmarkdown::render(inputFile, encoding = encoding, output_dir = "./../docs") })
 editor_options: 
   chunk_output_type: console
 ---
